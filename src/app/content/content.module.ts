@@ -6,7 +6,9 @@ import { SliderModule } from './slider/slider.module';
 
 import { VolsComponent } from './vols/vols.component';
 import { CardInfModule } from './card-inf/card-inf.module';
-import { VolsModule } from './vols/vols.module';
+
+import { LoginComponent } from './login/login.component';
+import { SigninComponent } from './signin/signin.component';
 
 
 
@@ -14,7 +16,7 @@ import { VolsModule } from './vols/vols.module';
   imports: [
     CommonModule,TypeVolModule,SliderModule,CardInfModule
   ],
-  declarations: [ContentComponent, VolsComponent],
+  declarations: [ContentComponent, VolsComponent, LoginComponent, SigninComponent],
   exports : [ContentComponent]
 })
 export class ContentModule { }

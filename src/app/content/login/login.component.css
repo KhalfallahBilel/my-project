@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700');
+
+body{
+  background-color:#fafafa;
+}
+.login-container {
+  text-align: center;
+  width: 320px;
+  margin: 10% auto;
+  font-family: 'Open Sans', sans-serif;
+  border: 2px solid #4c7faf;
+  border-top: 8px solid #4c7faf;
+  border-bottom: 8px solid #4c7faf;
+  padding: 20px 30px 40px 30px;
+  box-sizing: border-box;
+  border-radius: 3px;
+  box-shadow: 0px 5px 14px 1px #cacaca;
+  overflow: hidden;
+  position:relative;
+  background-color:#FFF;
+}
+.login-container:after{
+  position:absolute;
+  content:'';
+  bottom:0;
+  left:0;
+  height:50px;
+  width:100%;
+  background:linear-gradient(#fff,#00368640);
+}
+.login-container .top-glare{
+  position:relative;
+}
+.login-container .top-glare:after{
+  content:'';
+  position:absolute;
+  height:130px;
+  width:200px;
+  right:-130px;
+  
+  transform:rotate(210deg);
+  top:-90px
+}
+.login-container h1 {
+  padding: 0;
+  margin: 0 0 25px 0;
+  color: #4c7faf;
+  font-weight:300;
+}
+.login-container .form-field {
+  display: block;
+  padding-bottom: 15px;
+}
+.login-container .form-field input[type="text"] {
+  text-align: left;
+  display: inline-block;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 8px;
+  font-size: 14px;
+  border: 1px solid #4c7faf;
+}
+.login-container .form-field label {
+  display: inline-block;
+  width: 100%;
+  text-align: left;
+  padding-bottom: 4px;
+  font-size: 12px;
+  font-weight: 400;
+  color: #6d6d6d;
+}
+.login-container .form-field input[type="submit"] {
+  padding: 12px 7px;
+  margin-top: 10px;
+  min-width: 120px;
+  background: #4c7faf;
+  border: 1px solid #4c7faf;
+  border-radius: 3px;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  text-shadow: 0px 0px 2px #000;
+}
+.login-container .form-field input[type="submit"]:hover {
+  background: #4c7faf;
+}
+.login-container .form-field .forgot-pass-link {
+  color: #333;
+  font-size: 12px;
+  color: #5a5a5a;
+}
+.login-container .form-field .forgot-pass-link:hover {
+  text-decoration: none;
+}
+
+@media screen and (max-width:380px){
+  .login-container{
+    width:100%;
+    min-width:280px;
+  }
+}
