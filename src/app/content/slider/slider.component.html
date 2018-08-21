@@ -1,0 +1,11 @@
+<div class="containe">
+<carousel>
+  <carousel [noPause]=false>
+    <slide *ngFor="let item of slides">
+      
+      <app-slider-list [slide]='item'></app-slider-list>
+    </slide>
+  
+  </carousel>
+</carousel>
+</div>
