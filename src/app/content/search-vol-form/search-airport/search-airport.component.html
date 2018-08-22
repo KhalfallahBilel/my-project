@@ -1,0 +1,8 @@
+<form [formGroup]="myForm">
+    <input formControlName="airport"
+           [typeahead]="airports"
+           [typeaheadOptionsLimit]="7"
+           [typeaheadMinLength]="0"
+           placeholder="Aéroport"
+           class="form-control">
+  </form>
