@@ -1,0 +1,12 @@
+img{
+    height: 200px;
+    object-fit: cover;
+    transition: transform .5s;
+}
+.card{
+    text-align: center;
+}
+img:hover{
+    transform: scale(1.5);
+    object-fit: contain;
+}
