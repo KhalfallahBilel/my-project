@@ -9,6 +9,9 @@ import { CardInfModule } from './card-inf/card-inf.module';
 
 import { LoginComponent } from './login/login.component';
 import { SigninComponent } from './signin/signin.component';
+import { ResultSearchComponent } from './search-vol-form/result-search/result-search.component';
+
+
 
 
 

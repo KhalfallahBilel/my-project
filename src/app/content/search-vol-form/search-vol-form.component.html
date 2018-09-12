@@ -1,83 +1,148 @@
+<div class="container">
 
-      <div class="c1">
-          <div class="row">
-            <div class="col ic1">
-              <div class="input-group lg">
-                <div class="input-group-prepend">
-                  <span class="input-group-text" id="inputGroup-sizing-lg"><i class="fas fa-plane-departure"></i></span>
-                </div>
-                <app-search-airport></app-search-airport>
-              </div>
-            </div>
-            
-            <div class="col ic1">
-              <div class="input-group lg">
-                <div class="input-group-prepend">
-                  <span class="input-group-text" id="inputGroup-sizing-lg"><i class="fas fa-plane-arrival"></i></span>
-                </div>
-                <app-search-airport></app-search-airport>
-              </div>
-            </div>
-          </div>
+
+<form [formGroup]="volForm" (ngSubmit)="onSubmit()">
+
+  <!-- AEROPORT DEPART ET ARRIVEE -->
+  <div class="row">
+    <div class="col">
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1">
+            <i class="fas fa-plane-departure"></i>
+          </span>
         </div>
-        <div class="c1">
-          <div class="row">
-            <div class="col-sm">
-              <input type="text" placeholder="Date de départ" class="form-control" bsDatepicker>
-            </div>
-            <div *ngIf="back" class="col-sm">
-              <input type="text" placeholder="Date de retour" class="form-control" bsDatepicker>
-            </div>
-            <div class="col-sm">
-  
-              <select class="custom-select" id="inputGroupSelect03" aria-label="Example select with button addon">
-                <option selected>Classe...</option>
-                <option value="1">Economique</option>
-                <option value="2">Business</option>
-                <option value="3">Premium</option>
-              </select>
-            </div>
-          </div>
-        </div>
-        
-  
-    <div class="row c1">
-      <div class="col-sm">
-        <select class="custom-select" id="inputGroupSelect03" aria-label="Example select with button addon">
-          <option selected>Adulte...</option>
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-        </select>
-        </div>
-     
-      <div class="col-sm">
-        <select class="custom-select" id="inputGroupSelect03" aria-label="Example select with button addon">
-          <option selected>Enfant...</option>
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-        </select>
-        </div>
-     
-      <div class="col-sm">
-        <select class="custom-select" id="inputGroupSelect03" aria-label="Example select with button addon">
-          <option selected>Bébé...</option>
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-  
-        </select>
-        </div>
+        <input formControlName="depart" type="text" class="form-control" placeholder="Aéroport Départ" aria-label="depart"
+          aria-describedby="basic-addon1" required>
+      </div>
     </div>
-       <div class="col-sm">
-  <button type="button" class="btn btn-primary">
-    Rechercher
-  </button>
+    <div class="col">
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1">
+            <i class="fas fa-plane-arrival"></i>
+          </span>
         </div>
+        <input formControlName="arrivee" type="text" class="form-control" placeholder="Aéroport Arrivée" aria-label="arrivee"
+          aria-describedby="basic-addon1" required>
+      </div>
+    </div>
+  </div>
+
+  <!-- DATE DEPART ET ARRIVEE -->
+  <div class="row">
+    <div class="col">
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1">
+            <i class="fas fa-calendar-alt"></i>
+          </span>
+        </div>
+        <input formControlName="dateAller" type="text" class="form-control" placeholder="Date Départ" aria-label="dateAler"
+          aria-describedby="basic-addon1" bsDatepicker required>
+      </div>
+    </div>
+    <div class="col">
+      <div *ngIf="back" class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1">
+            <i class="fas fa-calendar-alt"></i>
+          </span>
+        </div>
+        <input formControlName="dateRetour" type="text" class="form-control" placeholder="Date Arrivée" aria-label="dateRetour"
+          aria-describedby="basic-addon1" bsDatepicker required>
+      </div>
+    </div>
+  </div>
+
+  <!-- CHOIX CLASSE -->
+  <div class="row w-75">
+    <div class="col">
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1">
+            <img src="../../../assets/seat.png" alt="seat">
+          </span>
+        </div>
+        <select class="custom-select" id="inputGroupSelect03" aria-label="Example select with button addon">
+          <option selected>Classe...</option>
+          <option value="1">Economique</option>
+          <option value="2">Business</option>
+          <option value="3">Premium</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <!-- CHOIX DES PASSAGERS -->
+
+  <div formGroupName="typePassager">
+  <div class="row">
+    
+        <!-- ADULTE -->
+      <div class="col">
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <label class="input-group-text" for="inputGroupSelect01">Adulte</label>
+          </div>
+          <select class="custom-select" id="inputGroupSelect03" aria-label="Example select with button addon">
+            <option selected></option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+        </div>
+      </div>
+         <!-- ENFANT -->
+      <div class="col">
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <label class="input-group-text" for="inputGroupSelect01">Enfant</label>
+          </div>
+          <select class="custom-select" id="inputGroupSelect03" aria-label="Example select with button addon">
+            <option selected></option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+        </div>
+      </div>
+
+        <!-- BEBE -->
+      <div class="col">
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <label class="input-group-text" for="inputGroupSelect01">Bébé</label>
+          </div>
+          <select class="custom-select" id="inputGroupSelect03" aria-label="Example select with button addon">
+            <option selected></option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+    <!-- BUTTON -->
+  <div class="d-flex justify-content-around">
+      <button type="submit" class="btn btn-dark btn-sm">Rechercher</button>
+    </div>
+</form>
+</div>
+
+
+<div class="container" *ngFor="let vol of this.vols">
+    <app-result-search [vol]=vol></app-result-search>
+  </div>
+
+
+

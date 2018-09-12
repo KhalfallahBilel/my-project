@@ -2,6 +2,8 @@ img{
     height: 200px;
     object-fit: cover;
     transition: transform .5s;
+    z-index: 0;
+    width: 100%;
 }
 .card{
     text-align: center;
@@ -9,4 +11,5 @@ img{
 img:hover{
     transform: scale(1.5);
     object-fit: contain;
+    z-index: 9999;
 }

@@ -7,6 +7,8 @@ import { NavBarModule } from './nav-bar/nav-bar.module';
 import { ContentModule } from './content/content.module';
 import { CardInfListService } from './service/card-inf-list.service';
 import { RouteModule } from './route/route.module';
+import { HttpClientModule } from '@angular/common/http';
+
 
 
 
@@ -18,7 +20,7 @@ import { RouteModule } from './route/route.module';
     
   ],
   imports: [
-    BrowserModule,NavBarModule,ContentModule,RouteModule, BrowserAnimationsModule
+    BrowserModule,NavBarModule,ContentModule,RouteModule, BrowserAnimationsModule, HttpClientModule
   ],
   providers: [CardInfListService],
   bootstrap: [AppComponent]
