@@ -5,7 +5,6 @@ import { FormsModule, ReactiveFormsModule } from '../../../../node_modules/@angu
 import { TabsModule, BsDatepickerModule } from '../../../../node_modules/ngx-bootstrap';
 import { SearchAirportComponent } from './search-airport/search-airport.component';
 import { TypeaheadModule } from 'ngx-bootstrap/typeahead';
-import { ResultSearchComponent } from './result-search/result-search.component';
 
 
 
@@ -13,7 +12,7 @@ import { ResultSearchComponent } from './result-search/result-search.component';
   imports: [
     CommonModule, FormsModule, TabsModule, BsDatepickerModule, ReactiveFormsModule, TypeaheadModule
   ],
-  declarations: [SearchVolFormComponent, SearchAirportComponent,ResultSearchComponent],
+  declarations: [SearchVolFormComponent, SearchAirportComponent],
   exports : [SearchVolFormComponent]
 })
 export class SearchVolFormModule { }

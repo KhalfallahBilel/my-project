@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Flight } from '../../model/Flight';
 
 @Component({
   selector: 'app-type-vol',
@@ -8,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TypeVolComponent implements OnInit {
 
+  @Output() onVolsLoaded : EventEmitter<Flight[]> = new EventEmitter<Flight[]>();
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  passToParent(vols){
+      this.onVolsLoaded.emit(vols);
   }
 
 }

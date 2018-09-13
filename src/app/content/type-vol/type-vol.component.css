@@ -1,7 +1,18 @@
-.container{
-    padding-block-start: 3%;
-    padding-block-end: 2%;
+.container .search{
+    padding: 1%;
     background-color:rgba(218, 231, 245, 0.7);
-    max-width: 50%;
+    max-width: 80%;
+    width: 70%;
     color: black;
+    
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+}
+
+::ng-deep .customClass > a{
+    background-color: rgba(204, 204, 204,0.6);
+    border-bottom: none !important;
 }

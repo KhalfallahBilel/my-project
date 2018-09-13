@@ -1,4 +1,13 @@
 <app-slider></app-slider>
-<app-type-vol></app-type-vol>
+<app-type-vol (onVolsLoaded)="retrieve($event)"></app-type-vol>
+
+<!-- APPEL RESULT-SEARCH --> 
+<div class="container">
+    <div class="row align-items-center">
+        <app-result-search class="col-sm-12 col-md-12 col-lg-12 p-3" *ngFor="let vol of this.vols" [vol]='vol' ></app-result-search> 
+    </div>
+</div>
+
+
 
 

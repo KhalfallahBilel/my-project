@@ -1,0 +1,61 @@
+<div class="container">
+
+{{vol.codeIATA_arrivee}}
+
+<h2>Données personnelles</h2>
+
+  <form [formGroup]="passagerForm">
+
+    <!--Nom et Prénom-->
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1">
+          <i class="fas fa-user"></i>
+        </span>
+      </div>
+      <input type="text" class="form-control" placeholder="Prénom" aria-label="prenom" aria-describedby="basic-addon1"
+        formControlName="prenom" required>
+      <input type="text" class="form-control" placeholder="Nom" aria-label="nom" aria-describedby="basic-addon1"
+        formControlName="nom" style="margin-left : 6px;" required>
+    </div>
+
+    <!--Email-->
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1">
+          <i class="fas fa-at"></i>
+        </span>
+      </div>
+      <input type="email" class="form-control" placeholder="E-mail" aria-label="email" aria-describedby="basic-addon1"
+        formControlName="email" required>
+    </div>
+
+    <!--Telephone-->
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1">
+          <i class="fas fa-phone"></i>
+        </span>
+      </div>
+      <input type="tel" class="form-control" placeholder="Téléphone" aria-label="téléphone" aria-describedby="basic-addon1"
+        formControlName="telephone" required>
+    </div>
+
+    <!--Age-->
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1">
+              <i class="fas fa-calendar-alt"></i>
+          </span>
+        </div>
+        <input type="number" class="form-control" placeholder="Age" aria-label="age" aria-describedby="basic-addon1"
+          formControlName="age" required>
+      </div>
+
+    <!-- BUTTON -->
+    <div class="d-flex justify-content-around">
+      <button type="submit" class="btn btn-primary" [disabled]="!passagerForm.valid">Continuer</button>
+    </div>
+  </form>
+  
+</div>

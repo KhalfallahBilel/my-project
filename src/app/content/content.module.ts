@@ -9,7 +9,12 @@ import { CardInfModule } from './card-inf/card-inf.module';
 
 import { LoginComponent } from './login/login.component';
 import { SigninComponent } from './signin/signin.component';
-import { ResultSearchComponent } from './search-vol-form/result-search/result-search.component';
+import { SearchVolFormModule } from './search-vol-form/search-vol-form.module';
+import { ResultSearchComponent } from './result-search/result-search.component';
+import { ReservationComponent } from './reservation/reservation.component';
+import { ResultSearchModule } from './result-search/result-search.module';
+import { RouteModule } from '../route/route.module';
+import { ReservationModule } from './reservation/reservation.module';
 
 
 
@@ -17,9 +22,9 @@ import { ResultSearchComponent } from './search-vol-form/result-search/result-se
 
 @NgModule({
   imports: [
-    CommonModule,TypeVolModule,SliderModule,CardInfModule
+    CommonModule,TypeVolModule,SliderModule,CardInfModule, SearchVolFormModule, ResultSearchModule, RouteModule, ReservationModule
   ],
-  declarations: [ContentComponent, VolsComponent, LoginComponent, SigninComponent],
+  declarations: [ContentComponent, VolsComponent, LoginComponent, SigninComponent,ResultSearchComponent],
   exports : [ContentComponent]
 })
 export class ContentModule { }

@@ -1,10 +1,14 @@
 <div class="container">
-  <tabset>
-    <tab customClass="customClass" heading="Aller - Retour">
-      <app-search-vol-form [back]='true'></app-search-vol-form>
-    </tab>
-    <tab customClass="customClass" heading="Aller Simple">
-      <app-search-vol-form></app-search-vol-form>
-    </tab>
-  </tabset>
+  <div class="search">
+    <tabset>
+      <tab customClass="customClass" heading="Aller - Retour">
+        <app-search-vol-form [back]='true' (onVolsLoaded)="passToParent($event)"></app-search-vol-form>
+      </tab>
+      <tab customClass="customClass" heading="Aller Simple">
+        <app-search-vol-form (onVolsLoaded)="passToParent($event)"></app-search-vol-form>
+      </tab>
+    </tabset>
+  </div>
+
 </div>
+

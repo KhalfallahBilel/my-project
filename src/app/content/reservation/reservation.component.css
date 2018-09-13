@@ -1,0 +1,13 @@
+.formPassager {
+    display: flex;
+    justify-content: center;
+    margin: 3%;
+    padding: 2px;
+    width: 80%;
+}
+
+
+.pressed {
+    background: blue;
+    color: white;
+}

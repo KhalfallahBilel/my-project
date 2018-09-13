@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { SearchVolService} from '../../service/search-vol.service'
 import { Flight } from '../../model/Flight';
@@ -11,6 +11,8 @@ import { Observable } from 'rxjs';
 })
 export class SearchVolFormComponent implements OnInit {
   @Input() back = false;
+
+  @Output() onVolsLoaded : EventEmitter<Flight[]> = new EventEmitter<Flight[]>();
 
   volForm = this.fb.group({
     depart : [''],
@@ -49,8 +51,9 @@ export class SearchVolFormComponent implements OnInit {
   this.searchVolService
       .getVols(this.volForm.get('depart').value, this.volForm.get('arrivee').value)
       .subscribe(value =>{
-        this.vols = value["data"];
-        console.log(this.vols);
+        console.log(value["data"]);
+        this.onVolsLoaded.emit(value["data"]);
+
       } );
 
   }

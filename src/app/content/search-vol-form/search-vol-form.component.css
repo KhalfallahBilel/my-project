@@ -1,20 +1,8 @@
-.c1{
-    padding: 2%;
-    text-align: center;
-}
-.ic{
-    width:10%;
-    text-align: center;
-}
-.ic:hover{
-    color: #ffffff;
-}
-.ic1{
-    width:45%;
+.container {
+    margin-top: 2vh;
 }
 
-::ng-deep .customClass > a{
-    background-color: rgba(204, 204, 204,0.6);
-    border-bottom: none !important;
-}
+
+
+
 
