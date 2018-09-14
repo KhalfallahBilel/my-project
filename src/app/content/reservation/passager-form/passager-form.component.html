@@ -1,6 +1,4 @@
-<div class="container">
-
-{{vol.codeIATA_arrivee}}
+<div *ngIf="step!==2" class="container">
 
 <h2>Données personnelles</h2>
 
@@ -27,7 +25,7 @@
         </span>
       </div>
       <input type="email" class="form-control" placeholder="E-mail" aria-label="email" aria-describedby="basic-addon1"
-        formControlName="email" required>
+        formControlName="mail" required>
     </div>
 
     <!--Telephone-->
@@ -54,8 +52,14 @@
 
     <!-- BUTTON -->
     <div class="d-flex justify-content-around">
-      <button type="submit" class="btn btn-primary" [disabled]="!passagerForm.valid">Continuer</button>
+      <button type="submit" class="btn btn-primary" [disabled]="!passagerForm.valid" (click)="createPassager()">Continuer</button>
     </div>
   </form>
-  
+
 </div>
+
+<div class="container">
+    <div *ngIf="step==2">
+      <app-paiement [vol]='vol' [prix]='prix' [passager]='passager' ></app-paiement>
+    </div>
+  </div>

@@ -1,0 +1,107 @@
+<!-- CARD RECAP PASSAGER-->
+
+<div class="container" *ngIf="step==1">
+  <div class="card">
+
+    <!-- HEADER -->
+    <div class="card-header">
+      <div class="row">
+        <div class="col-10" style="font-weight: bold">
+          <span style="margin-right: 3%;">{{this.passager.nom | uppercase}} {{this.passager.prenom}}</span>
+        </div>
+        <div class="col-2">
+          <span class="badge badge-pill badge-success" style="font-size : 18px !important;"><i class="fas fa-user"></i></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- BODY -->
+    <div class="card-body">
+
+      <!-- Horaires -->
+      <div class="row">
+        <div class="col-1">
+          <i class="fas fa-at"></i>
+        </div>
+        <div class="col-11" style="padding-left: 0%;">
+          {{this.passager.mail}}
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-1">
+          <i class="fas fa-phone"></i>
+        </div>
+        <div class="col-11" style="padding-left: 0%;">
+          {{this.passager.telephone}}
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+
+</div>
+<!--FORM PAIEMENT-->
+<div class="container" style="margin-top: 1%" *ngIf="step==1">
+
+  <h2>Informations de Paiement</h2>
+
+  <form [formGroup]="paiementForm">
+
+    <!--Nom et Prénom-->
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1">
+          <i class="fas fa-user"></i>
+        </span>
+      </div>
+      <input type="text" class="form-control" placeholder="Prénom" aria-label="prenom" aria-describedby="basic-addon1"
+        formControlName="prenom" required>
+      <input type="text" class="form-control" placeholder="Nom" aria-label="nom" aria-describedby="basic-addon1"
+        formControlName="nom" style="margin-left : 6px;" required>
+    </div>
+
+    <!--Numero de carte-->
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1">
+            <i class="fas fa-credit-card"></i>
+        </span>
+      </div>
+      <input type="number" class="form-control" placeholder="Numéro de CB" aria-label="numéro de la carte"
+        aria-describedby="basic-addon1" formControlName="numeroCarte" required>
+    </div>
+
+    <!--Date expiration-->
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1">
+          <i class="far fa-clock"></i>
+        </span>
+      </div>
+      <input type="text" class="form-control" placeholder="Date d'Expiration" aria-label="date exp" aria-describedby="basic-addon1"
+        formControlName="dateexp" required>
+    </div>
+
+    <!--CVV-->
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1">
+            <i class="fas fa-lock"></i>
+        </span>
+      </div>
+      <input type="number" class="form-control" placeholder="CVV" aria-label="age" aria-describedby="basic-addon1"
+        formControlName="crypto" required>
+    </div>
+      <!-- BUTTON -->
+    <div class="d-flex justify-content-around">
+      <button type="submit" class="btn btn-primary" [disabled]="!paiementForm.valid" (click)="addPassager()">Payer</button>
+    </div>
+
+  </form>
+
+</div>
+<!--BILLET ELECTRONIQUE-->
+<div class="container ctn-billet" *ngIf="step==2">
+    <app-billet [vol]='vol' [passager]='passager'></app-billet>
+</div>

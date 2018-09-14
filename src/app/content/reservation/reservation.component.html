@@ -1,9 +1,16 @@
-<div class="container">
+<div class="container" [ngClass]="{'reduce': step == 2}">
   <div class="card">
 
     <!-- HEADER -->
     <div class="card-header">
-      {{vol.codeIATA_depart}} <i class="fas fa-plane"></i> {{vol.codeIATA_arrivee}}
+        <div class="row">
+            <div class="col-10">
+                {{vol.codeIATA_depart}} <i class="fas fa-plane"></i> {{vol.codeIATA_arrivee}}
+            </div>
+            <div *ngIf="step==2" class="col-2">
+                <span class="badge badge-pill badge-success" style="font-size : 18px !important;">{{prix}} €</span>
+            </div>
+        </div>
     </div>
 
     <!-- BODY -->
@@ -11,16 +18,16 @@
 
       <!-- Horaires -->
       <div class="row">
-        <div class="col-1">
-          <i class="far fa-clock"></i>
+        <div class="col-1 d-flex align-items-center justify-content-end">
+          <i class="fas fa-plane-departure p-0"></i>
         </div>
         <div class="col-11">
           Heure de départ : {{vol.heureDepart}}
         </div>
       </div>
       <div class="row">
-        <div class="col-1">
-          <i class="far fa-clock"></i>
+        <div class="col-1  d-flex align-items-center justify-content-end">
+            <i class="fas fa-plane-arrival"></i>          
         </div>
         <div class="col-11">
           Heure d'arrivée : {{vol.heureArrivee}}
@@ -28,9 +35,9 @@
       </div>
 
       <!-- LIGNE HORIZONTALE -->
-      <div class="row">
+      <div *ngIf="step!==2" class="row">
         <div class="col">
-          <hr size="4" color="midnightblue">
+          <hr size="3" color="midnightblue">
         </div>
       </div>
 
@@ -38,33 +45,34 @@
       <div *ngIf="step==1" class="row">
         <div class="col-4 d-flex justify-content-center">
 
-          <button (click)='choixPrix(vol.offreDePrix.prixEco)' type="button" class="btn btn-outline-primary" [ngClass]="{'pressed': prix == vol.offreDePrix.prixEco}">
-            Tarif Economique : <br> {{vol.offreDePrix.prixEco}} €
+          <button (click)='choixPrix(vol.offreDePrix.prixEco)' type="button" class="btn btn-outline-primary btn-prix"
+          [ngClass]="{'pressed': prix == vol.offreDePrix.prixEco}">
+          Tarif Economique : <br> {{vol.offreDePrix.prixEco}} €
           </button>
 
         </div>
         <div class="col-4 d-flex justify-content-center">
 
-          <button (click)='choixPrix(vol.offreDePrix.prixAffaire)' type="button" class="btn btn-outline-primary"
+          <button (click)='choixPrix(vol.offreDePrix.prixAffaire)' type="button" class="btn btn-outline-primary btn-prix"
             [ngClass]="{'pressed': prix == vol.offreDePrix.prixAffaire}">
             Tarif Affaires : <br> {{vol.offreDePrix.prixAffaire}} €</button>
         </div>
         <div class="col-4 d-flex justify-content-center">
 
-          <button (click)='choixPrix(vol.offreDePrix.prixPremium)' type="button" class="btn btn-outline-primary"
+          <button (click)='choixPrix(vol.offreDePrix.prixPremium)' type="button" class="btn btn-outline-primary btn-prix"
             [ngClass]="{'pressed': prix == vol.offreDePrix.prixPremium}">
             Tarif Premium : <br> {{vol.offreDePrix.prixPremium}} €</button>
         </div>
       </div>
 
       <!-- LIGNE HORIZONTALE -->
-      <div class="row">
+      <div *ngIf="step!==2" class="row">
         <div class="col">
-          <hr size="4" color="midnightblue">
+          <hr size="3" color="midnightblue">
         </div>
       </div>
-      <!-- DEAILS AVION-->
-      <div class="row">
+      <!-- DETAILS AVION-->
+      <div *ngIf="step!==2" class="row">
         <div class="col">
           Type d'Avion :
         </div>
@@ -74,18 +82,22 @@
         <div class="col">
           {{vol.avion.nombreSiege}} sièges
         </div>
-
       </div>
-    </div>
-  </div>
-  <div *ngIf="prix!=0">
-    <button type="button" class="btn btn-outline-primary" (click)="showVol()">Continuer</button>
-  </div>
 
+      <!-- BUTTON CONTINUER -->
+      <div *ngIf="prix!=0 && step!==2" class="row btn-continuer">
+        <div class="col d-flex justify-content-center">
+          <button type="button" class="btn btn-outline-primary" (click)="showVol()">Continuer</button>
+        </div>
+        </div>
+
+    </div>
+</div>
+</div>
+
+<div class="container ctn-passagerform">
   <div *ngIf="step==2">
-      <app-passager-form [vol]='vol'></app-passager-form>
-    </div>
-
-
+    <app-passager-form [vol]='vol' [prix]='prix'></app-passager-form>
+  </div>
 </div>
 

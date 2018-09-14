@@ -8,6 +8,23 @@
 
 
 .pressed {
-    background: blue;
+    background-color: darkblue;
     color: white;
 }
+
+.btn-prix{
+    min-width: 30vh;
+}
+
+.btn-continuer{
+    margin-top: 2%;
+}
+
+.ctn-passagerform{
+    margin-top: 1%;
+}
+
+.reduce {
+    width: 50% !important;
+  }
+

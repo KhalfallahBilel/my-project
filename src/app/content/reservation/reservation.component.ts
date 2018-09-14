@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Flight } from '../../model/Flight';
+import { Passager } from '../../model/passager';
 
 @Component({
   selector: 'app-reservation',
@@ -31,6 +32,8 @@ export class ReservationComponent implements OnInit {
     console.log(this.vol);
     this.step=2;
   }
+
+
   
 
 }
