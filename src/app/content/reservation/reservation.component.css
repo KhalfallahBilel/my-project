@@ -1,9 +1,15 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
 .formPassager {
     display: flex;
     justify-content: center;
     margin: 3%;
     padding: 2px;
     width: 80%;
+}
+
+.col-heure{
+    font-family: 'Montserrat', sans-serif;
 }
 
 
@@ -28,3 +34,30 @@
     width: 50% !important;
   }
 
+  p{
+    font-family: 'Montserrat', sans-serif;
+    color : navy;
+    font-weight: bold;
+}
+
+i{
+    color: navy;
+}
+
+.card-header {
+    font-size: 20px;
+}
+
+.btn{
+    font-family: 'Montserrat', sans-serif; 
+}
+
+.detail-avion{
+    font-family: 'Montserrat', sans-serif; 
+}
+
+h2 {
+    color : navy;
+    font-family: 'Montserrat', sans-serif;
+    margin-top: 3%;
+}

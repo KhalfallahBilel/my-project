@@ -1,16 +1,23 @@
 <div class="container" [ngClass]="{'reduce': step == 2}">
+
+  <div *ngIf="step==1">
+    <h2>Choix du tarif</h2>
+  </div>
+
+
   <div class="card">
 
     <!-- HEADER -->
     <div class="card-header">
-        <div class="row">
-            <div class="col-10">
-                {{vol.codeIATA_depart}} <i class="fas fa-plane"></i> {{vol.codeIATA_arrivee}}
-            </div>
-            <div *ngIf="step==2" class="col-2">
-                <span class="badge badge-pill badge-success" style="font-size : 18px !important;">{{prix}} €</span>
-            </div>
+      <div class="row">
+        <div class="col-10">
+          {{vol.codeIATA_depart}} <i class="fas fa-long-arrow-alt-right fa-lg"></i> {{vol.codeIATA_arrivee}}
         </div>
+        <div *ngIf="step==2" class="col-2">
+          <span class="badge badge-pill badge-success" style=" background-color: navy ; font-size : 18px !important;">{{prix}}
+            €</span>
+        </div>
+      </div>
     </div>
 
     <!-- BODY -->
@@ -18,26 +25,45 @@
 
       <!-- Horaires -->
       <div class="row">
-        <div class="col-1 d-flex align-items-center justify-content-end">
-          <i class="fas fa-plane-departure p-0"></i>
+        <div class="col-8">
+          <div class="row m-1">
+            <div class="col-1 d-flex align-items-center justify-content-end">
+              <i class="fas fa-plane-departure fa-lg p-0"></i>
+            </div>
+            <div class="col-11 col-heure">
+              <span style="font-weight: bold;"> Départ : </span>{{vol.heureDepart}}
+            </div>
+          </div>
+          <div class="row m-1">
+            <div class="col-1 d-flex align-items-center justify-content-end">
+              <i class="fas fa-plane-departure fa-lg p-0"></i>
+            </div>
+            <div class="col-11 col-heure">
+              <span style="font-weight: bold;"> Arrivée : </span>{{vol.heureArrivee}}
+            </div>
+          </div>
         </div>
-        <div class="col-11">
-          Heure de départ : {{vol.heureDepart}}
+
+        <!-- DETAILS AVION-->
+
+        <div class="col-4">
+          <div *ngIf="step!==2" class="row detail-avion">
+            <div class="col">
+              {{vol.avion.type}}
+            </div>
+            <div class="col">
+              Direct
+            </div>
+          </div>
         </div>
       </div>
-      <div class="row">
-        <div class="col-1  d-flex align-items-center justify-content-end">
-            <i class="fas fa-plane-arrival"></i>          
-        </div>
-        <div class="col-11">
-          Heure d'arrivée : {{vol.heureArrivee}}
-        </div>
-      </div>
+
+
 
       <!-- LIGNE HORIZONTALE -->
       <div *ngIf="step!==2" class="row">
         <div class="col">
-          <hr size="3" color="midnightblue">
+          <hr size="1" color="midnightblue">
         </div>
       </div>
 
@@ -46,8 +72,8 @@
         <div class="col-4 d-flex justify-content-center">
 
           <button (click)='choixPrix(vol.offreDePrix.prixEco)' type="button" class="btn btn-outline-primary btn-prix"
-          [ngClass]="{'pressed': prix == vol.offreDePrix.prixEco}">
-          Tarif Economique : <br> {{vol.offreDePrix.prixEco}} €
+            [ngClass]="{'pressed': prix == vol.offreDePrix.prixEco}">
+            Tarif Economique <br> {{vol.offreDePrix.prixEco}} €
           </button>
 
         </div>
@@ -55,32 +81,13 @@
 
           <button (click)='choixPrix(vol.offreDePrix.prixAffaire)' type="button" class="btn btn-outline-primary btn-prix"
             [ngClass]="{'pressed': prix == vol.offreDePrix.prixAffaire}">
-            Tarif Affaires : <br> {{vol.offreDePrix.prixAffaire}} €</button>
+            Tarif Affaires <br> {{vol.offreDePrix.prixAffaire}} €</button>
         </div>
         <div class="col-4 d-flex justify-content-center">
 
           <button (click)='choixPrix(vol.offreDePrix.prixPremium)' type="button" class="btn btn-outline-primary btn-prix"
             [ngClass]="{'pressed': prix == vol.offreDePrix.prixPremium}">
-            Tarif Premium : <br> {{vol.offreDePrix.prixPremium}} €</button>
-        </div>
-      </div>
-
-      <!-- LIGNE HORIZONTALE -->
-      <div *ngIf="step!==2" class="row">
-        <div class="col">
-          <hr size="3" color="midnightblue">
-        </div>
-      </div>
-      <!-- DETAILS AVION-->
-      <div *ngIf="step!==2" class="row">
-        <div class="col">
-          Type d'Avion :
-        </div>
-        <div class="col">
-          {{vol.avion.type}}
-        </div>
-        <div class="col">
-          {{vol.avion.nombreSiege}} sièges
+            Tarif Premium <br> {{vol.offreDePrix.prixPremium}} €</button>
         </div>
       </div>
 
@@ -89,10 +96,10 @@
         <div class="col d-flex justify-content-center">
           <button type="button" class="btn btn-outline-primary" (click)="showVol()">Continuer</button>
         </div>
-        </div>
+      </div>
 
     </div>
-</div>
+  </div>
 </div>
 
 <div class="container ctn-passagerform">
@@ -100,4 +107,3 @@
     <app-passager-form [vol]='vol' [prix]='prix'></app-passager-form>
   </div>
 </div>
-
